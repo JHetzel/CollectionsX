@@ -3,10 +3,9 @@ package de.juliushetzel.collectionx;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.function.BinaryOperator;
-import java.util.function.Consumer;
-import java.util.function.Function;
-import java.util.function.Supplier;
+import java.util.Set;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.function.*;
 import java.util.stream.Collector;
 
 public final class CollectorsX {
@@ -31,7 +30,11 @@ public final class CollectorsX {
         return Collector.of(supplier, Collection::add, BinaryOperators::collectionBinaryOperator);
     }
 
-
-
+    public static Collector<Integer, AtomicInteger, Integer> sumCollect() {
+        return Collector.of(AtomicInteger::new, AtomicInteger::addAndGet, (atomicInteger, atomicInteger2) -> {
+            atomicInteger.addAndGet(atomicInteger2.get());
+            return atomicInteger;
+        }, AtomicInteger::get);
+    }
 
 }
