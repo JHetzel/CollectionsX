@@ -1,5 +1,6 @@
-package de.juliushetzel.collectionx;
+package de.juliushetzel.collectionx.function;
 
+import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.function.Function;
 

@@ -1,9 +1,10 @@
 package de.juliushetzel.collectionx;
 
+import de.juliushetzel.collectionx.function.FunctionsX;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.*;
 import java.util.stream.Collector;
