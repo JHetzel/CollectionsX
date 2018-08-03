@@ -5,7 +5,7 @@ import java.util.Objects;
 @FunctionalInterface
 public interface ThrowingFunction<T, R> {
 
-    R apply(T t);
+    R apply(T t) throws Exception;
 
     default <V> ThrowingFunction<V, R> compose(ThrowingFunction<? super V, ? extends T> before) {
         Objects.requireNonNull(before);
