@@ -46,6 +46,16 @@ public final class ThrowablesX {
         };
     }
 
+    public static <T, R> Function<T, R> propagateFunction(ThrowingFunction<T, R> function) {
+        return (t) -> {
+            try {
+                return function.apply(t);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        };
+    }
+
     public static <T, R, E extends RuntimeException> Function<T, R> propagateFunction(Function<Exception, E> runtimeException, ThrowingFunction<T, R> function) {
         return (t) -> {
             try {
