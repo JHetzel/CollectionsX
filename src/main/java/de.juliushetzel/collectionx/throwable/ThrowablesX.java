@@ -6,6 +6,8 @@ import java.util.function.Predicate;
 
 public final class ThrowablesX {
 
+    private ThrowablesX() {}
+
     public static <T> Predicate<T> propagatePredicate(ThrowingPredicate<T> predicate) {
         return (t) -> {
             try {

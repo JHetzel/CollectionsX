@@ -6,6 +6,8 @@ import java.util.List;
 
 public final class CollectionsX {
 
+    private CollectionsX() {}
+
     public static String toString(Collection<?> collection) {
         StringBuilder result = new StringBuilder("[");
         for (Object object : collection) {

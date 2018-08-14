@@ -11,6 +11,8 @@ import java.util.stream.Collector;
 
 public final class CollectorsX {
 
+    private CollectorsX() {}
+
     public static <T, C extends Collection<T>, R> Collector<T, C, R> mapCollector(Function<C, R> mapper, Supplier<C> supplier) {
         return Collector.of(supplier, Collection::add, BinaryOperators::collectionBinaryOperator, mapper);
     }
